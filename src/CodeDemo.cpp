@@ -14,6 +14,27 @@ Student my_student(1,"Hilda Jones");
 Course my_course(7,"Physics 101",4);
 Grade my_grade(1,7,'B');
 
+void initialize();
+StudentRecords SR;
+int id;
+
+int square(int x) {
+  x = x * x;
+  return x;
+}
+
+void swap(int *x, int *y) {
+  int temp = *x;
+  *x = *y;
+  *y = temp;
+}
+
+void swap(int& x, int& y) {
+  int temp = x;
+  x = y;
+  y = temp;
+}
+
 int main(){
     ptr = &a;
     cout << "             The content of a is: " << a << endl;
@@ -51,5 +72,38 @@ int main(){
     cout << "Course: " << my_course.get_name() << endl;
     cout << "Credits: " << my_course.get_credits() << endl;
     cout << "Grade: " << my_grade.get_grade() << endl;
+    
+    //chapter 4
+    //chapter 5
+    initialize();
+    cout << "Enter a student ID: ";
+    cin >> id;
+    SR.report_card(id);
+    
+    // swap
+    int a = 9, b;
+    b = square(a);
+    cout << "a = " << a << ", b = " << b << endl;
+    swap(&a, &b);
+    cout << "a = " << a << ", b = " << b << endl;
+    swap(a, b);
+    cout << "a = " << a << ", b = " << b << endl;
     return (0);
+}
+
+void initialize() {
+  SR.add_student(1, "George P. Burdell");
+  SR.add_student(2, "Nancy, Rhodes");
+
+  SR.add_course(1, "Algebra", 5);
+  SR.add_course(2, "Physics", 4);
+  SR.add_course(3, "English", 3);
+  SR.add_course(4, "Economics", 4);
+
+  SR.add_grade(1,1,'B');
+  SR.add_grade(1,2,'A');
+  SR.add_grade(1,3,'C');
+  SR.add_grade(2,1,'A');
+  SR.add_grade(2,2,'A');
+  SR.add_grade(2,4,'B');
 }
